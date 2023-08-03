@@ -5,7 +5,7 @@ Mainly for the purpose of further education, gaining experience in website devel
 
 The website is intended to fulfil two main tasks: 
 1. create a publicly viewable, portfolio-like way to share various types of content.
-2. as a home page for remote access to my home network and the locally hosted services within it.
+2. as a homepage for remote access to my home network and the locally hosted services within it.
 
 
 For the creation of the website, I currently rely on "svelte", a free and open source, component-based JavaScript framework, which I also used for the initial creation of the project. More information can be found at [`svelte.dev`](https://svelte.dev/).
