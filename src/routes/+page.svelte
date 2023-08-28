@@ -69,7 +69,7 @@ const navItems = [{
 
         <h1>Hello World, welcome to <a href="https://bd-arts.de">bd-arts.de</a>!</h1>
 
-        <p>This site is still under construction! For further updates or if you want to follow the development, you can visit my GitHub <a href="https://github.com/bdoench/bd-arts.de">repository</a>.</p>
+        <p>This site is still under construction! For further updates or if you want to follow the development, visit my GitHub <a href="https://github.com/bdoench/bd-arts.de">repository</a>.</p>
     </div>
 </body>
 
