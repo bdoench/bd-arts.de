@@ -44,6 +44,9 @@ const navItems = [{
 
 <head>
     <title> BD-ARTS.DE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -78,10 +81,12 @@ const navItems = [{
     outline: 0;
     text-align: center;
     color: antiquewhite;
+    text-decoration: none;
 }
 
 body {
     background-color: darkslategray;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 h1 {
@@ -131,10 +136,7 @@ ul {
 
 .item {
     display: inline-block;
-    text-decoration: none;
-    padding-bottom: 20px;
-    padding-top: 20px;
-
+    padding: 20px;
 }
 
 .item:hover {
@@ -143,7 +145,11 @@ ul {
 
 .left {}
 
-.center {}
+@media only screen and (max-width: 935px) {
+    .center {
+        display: none;
+    }
+}
 
 .right {}
 </style>
