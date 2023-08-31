@@ -1,6 +1,14 @@
 import adapter from '@sveltejs/adapter-static';
+import preprocess from 'svelte-preprocess';
 
-export default {
+const config = {
+
+    preprocess: preprocess({
+        postcss: {
+            configFilePath: './postcss.config.cjs'
+        }
+    }),
+
     kit: {
         adapter: adapter({
             // default options are shown. On some platforms
@@ -13,3 +21,5 @@ export default {
         })
     }
 };
+
+export default config;
