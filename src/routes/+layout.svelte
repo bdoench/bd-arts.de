@@ -10,22 +10,32 @@ import Navbar from './lib/components/Navbar.svelte';
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
 </head>
 
-<div class="">
+<body>
     <Navbar />
     <slot />
-</div>
+</body>
+
 
 <style>
-* {
+body {
     margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
+
     text-align: center;
     color: antiquewhite;
-    text-decoration: none;
-    background: black;
-    font-family: 'Space Grotesk', sans-serif;
-}
 
+    font-family: 'Space Grotesk', sans-serif;
+
+    background-image: url('/bg2.jpg');
+
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-attachment: fixed;
+   
+    
+}
 </style>

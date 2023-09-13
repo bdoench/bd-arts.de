@@ -1,12 +1,19 @@
-<div>
-    14:30
-</div>
+<script>
+import { onMount } from 'svelte';
 
-<style>
-div {
-    font-size: 25px;
-    color: rgba(255, 255, 255, 0.9);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    text-shadow: 0px 2px 5px black;
-}
-</style>
+let time = new Date();
+
+let hours = time.getHours()
+let minutes = time.getMinutes()
+$: str_hours = hours < 10 ? "0" + hours : hours;
+$: str_minutes = minutes < 10 ? "0" + minutes : minutes;
+
+onMount(() => {
+    const interval = setInterval(() => {
+        time = new Date();
+    }, 1000);});
+</script>
+
+<div>
+    <a href="/" class="item left">{str_hours}:{str_minutes}</a>
+</div>

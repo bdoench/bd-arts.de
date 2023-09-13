@@ -1,55 +1,56 @@
-<script>
+<script lang="ts">
 import Time from "./Time.svelte";
 import Weather from "./Weather.svelte";
+import ThemeSwitch from "./ThemeSwitch.svelte";
+    import { text } from "@sveltejs/kit";
 </script>
 
-<nav>
-    <ul>
-        <li><img src="/favicon.png" alt="Logo" width={65} class="logo"/></li>
-        <li><Time /></li>
-        <li><Weather /></li>
-    </ul><ul>
-        <li><a href="/blog" class="item center">Blog</a></li>
-        <li><a href="/subjects" class="item center">Subjects</a></li>
-        <li><a href="/about" class="item center">About Me</a></li>
-    </ul><ul>
-        <li><a href="/login" class="item right">Login</a></li>
-        <li><a href="/" class="item right">Toggle Darkmode</a></li>
-        <li><a href="/" class="item right">Language</a></li>
-    </ul>
+<nav class="">
+    
+    <a href="/"> 
+        <img src="/favicon.png" alt="Logo" class="logo"/>
+    </a>
+    <Time />
+    <div class="item left">22°C</div>
+    <a href="/blog" class="item center">Blog</a>
+    <a href="/subjects" class="item center">Subjects</a>
+    <a href="/about" class="item center">About Me</a>
+    <a href="/login" class="item right">Login</a>
+    <a href="/" class="item right">Language</a>
+    <ThemeSwitch />
+
 </nav>
 
 <style>
 nav {
     padding: 0 0;
     top: 0;
-    min-width: 100%;
-    min-height: 20px;
+    width: 100%;
     position: relative;
-    overflow: hidden;
-    background-color: rgba(47, 79, 79, 0.7);
+    background-color: rgba(47, 79, 79, 0.5);
     display: inline-flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    display: contents;
-    list-style: none;
+.logo {
+    height: 65px;
 }
-
-.logo {}
 
 .item {
     display: inline-block;
-    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    transition: 0.3s;
+    
 }
 
 .item:hover {
-    background-color: rgba(47, 79, 79, 0.8);
+    background-color: rgba(47, 79, 79, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -2px -2px 5px rgb(255, 255, 255, 0.5);
 }
 
 @media only screen and (max-width: 935px) {

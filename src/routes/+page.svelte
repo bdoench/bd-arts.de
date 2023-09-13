@@ -2,7 +2,7 @@
 
 </script>
 
-<div class="bg-img">
+<div class="">
 
     <h1>Hello World, welcome to <a href="https://bd-arts.de">bd-arts.de</a>!</h1>
 
@@ -11,19 +11,6 @@
 </div>
 
 <style>
-.bg-img {
-    background-image: url('/bg2.jpg');
-
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    min-height: 800px;
-    min-width: 500px;
-
-    position: relative;
-
-}
 
 h1 {
     padding: 50px;
