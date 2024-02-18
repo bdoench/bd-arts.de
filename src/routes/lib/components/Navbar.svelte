@@ -1,6 +1,8 @@
-<script>
+<script lang="ts">
 import Time from "./Time.svelte";
 import Weather from "./Weather.svelte";
+import ThemeSwitch from "./ThemeSwitch.svelte";
+    import { text } from "@sveltejs/kit";
 import {
     onMount
 } from 'svelte';
