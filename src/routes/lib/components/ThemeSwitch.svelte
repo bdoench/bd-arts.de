@@ -1,15 +1,20 @@
-<div>
+<div class="toggle">
     <input type="checkbox" id="theme-toggle" />
     <label for="theme-toggle" />
 </div>
 
 <style lang="postcss">
     #theme-toggle {
-        @apply invisible;
+        @apply invisible;        
+    }
+    
+    .toggle:hover{
+        translate: 1px 1px;
+        background: radial-gradient(circle, rgba(0,0,0,0) 100%, rgba(0,0,0,1) 0%)
     }
 
     #theme-toggle + label {
-        @apply inline-block cursor-pointer h-9 w-9 relative top-1 right-4 rounded-full duration-300;
+        @apply inline-flex cursor-pointer h-11 w-11 relative top-1 right-2 rounded-full duration-300;
     }
 
     #theme-toggle:not(:checked) + label {

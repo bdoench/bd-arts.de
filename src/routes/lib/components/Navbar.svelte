@@ -2,73 +2,91 @@
 import Time from "./Time.svelte";
 import Weather from "./Weather.svelte";
 import ThemeSwitch from "./ThemeSwitch.svelte";
-    import { text } from "@sveltejs/kit";
-import {
-    onMount
-} from 'svelte';
 
-let showInvisible = false;
+import {onMount} from 'svelte';
+
+let e = false;
+
+
 
 onMount(() => {
-    const visibleLink = document.querySelector('.visible');
-    visibleLink.addEventListener('mouseover', () => {
-        showInvisible = true;
-    });
-    visibleLink.addEventListener('mouseout', () => {
-        showInvisible = false;
-    });
+    const toggle = document.querySelector(".expand");
+    const popup = document.querySelector(".popup-box");
+
+    toggle.addEventListener("mouseenter", expand);
+    toggle.addEventListener("mouseleave", close);
+
+    popup.addEventListener("mouseenter", expand);
+    popup.addEventListener("mouseleave", close);
+
+    function expand() {
+        e = true;
+    }
+
+    function close() {
+        e = false
+    }
 });
+
 </script>
 
 <div class="container">
     <div class="navbar">
         <div class="left">
             <ul>
-                <img src="/favicon.png" alt="Logo" width={65} class="logo"/>
+                <div class="logo">
+                    <img src="/favicon.png" alt="Logo" width={65} class="logo"/>
+                </div>
                 <li><Time /></li>
                 <li><Weather /></li>
             </ul>
         </div>
+
         <div class="center">
             <nav>
                 <ul>
                     <li><a href="/blog">Blog</a></li>
-                    <li><a href="/subjects" class="visible" style="display: {showInvisible ? 'none' : 'flex'}">Subjects</a></li>
-                    <div style="display: {showInvisible ? 'flex' : 'none'}">
-                        <ul>
-                            <li><a href="/photography">Photography</a></li>
-                            <li><a href="/3dart">3D Art</a></li>
-                            <li><a href="/diy">DIY | Electronics</a></li>
-                            <li><a href="/tech">Tech</a></li>
-                        </ul>
+                    <div class="expand">
+                        <li><div>Subjects</div></li>
+                    </div>
+                    <div class="visible">
+                        <li><a href="/photography">Photography</a></li>
+                        <li><a href="/3dart">3D Art</a></li>
+                        <li><a href="/diy">DIY</a></li>
+                        <li><a href="/tech">Tech</a></li>
                     </div>
                     <li><a href="/about">About</a></li>
-                </ul>
+                 </ul>
             </nav>
         </div>
+        
         <div class="right">
             <ul>
                 <li><a href="/login">Login</a></li>
-                <li><button>Darkmode</button></li>
-                <li><button>Language</button></li>
-                <li><button>Menu</button></li>
+                <div><ThemeSwitch /></div>
+                <li><button>Lang</button></li>
+                <div class="menu">
+                    <li><button>Menu</button></li>
+                </div>
             </ul>
         </div>
-    </div>
+        
 
-    <div class="popup-box" style="display: {showInvisible ? 'block' : 'none'}">
-        <ul>
-            <li><a href="/photography">Photography</a></li>
-            <li><a href="/3dart">3D Art</a></li>
-            <li><a href="/diy">DIY | Electronics</a></li>
-            <li><a href="/tech">Tech</a></li>
-        </ul>
+        <div class="popup-box" style="display: {e ? 'flex' : 'none'}">
+            <ul>
+                <li><a href="/photography">Photography</a></li>
+                <li><a href="/3dart">3D Art</a></li>
+                <li><a href="/diy">DIY | Electronics</a></li>
+                <li><a href="/tech">Tech</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 
 <style>
 * {
     text-shadow: 1px 1px 10px black;
+    white-space: nowrap;
 }
 
 .navbar {
@@ -85,26 +103,35 @@ onMount(() => {
     position: fixed;
     z-index: 9999;
 
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    padding: 2vh 10vw;
 
-    backdrop-filter: blur(2px);
-    background: radial-gradient(circle, rgba(47, 79, 79, 0) 0%, rgba(88, 150, 150, 0.5)60%, rgba(47, 79, 79, 1) 100%);
+    backdrop-filter: blur(50px);
+    background: radial-gradient(circle at bottom, rgba(0, 0, 0, 0) 20%, rgba(47, 79, 79, 0.5) 90%, rgba(47, 79, 79, 0.8) 100%);
+    transition: all 200ms ease-in;
 }
 
 .popup-box {
     position: absolute;
-
+    translate: 0% 75%;
     z-index: 9999;
-    background-color: rgba(47, 79, 79, 1);
+    background-color: rgba(47, 79, 79, 0.8);
+    backdrop-filter: blur(50px);
+    border: 2px double antiquewhite;
     border-radius: 50px;
-    max-width: 40vw;
-    padding: 7vh;
+    max-width: 30vw;
+    padding: 3vh 0;
+    display: flexbox;
 
 }
 
 .popup-box ul {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.logo {
+    height: 65px;
 }
 
 .left {
@@ -131,8 +158,8 @@ nav {
     border: 2px double antiquewhite;
     border-radius: 50vh;
 
-    backdrop-filter: blur(30px);
-    background: rgba(47, 79, 79, 0.4);
+    
+    background: rgba(47, 79, 79, 0.8);
 
 }
 
@@ -153,25 +180,56 @@ li {
     transition: all 100ms;
 }
 
-li:hover {
-
+li:hover, button:hover{
     text-shadow: none;
     background-size: 100% 100%;
     translate: 1px 1px;
-
+    text-decoration: underline;
 }
 
-.invisible {
+.visible{
+    display: inline-flex;
+}
+
+.expand {
     display: none;
+    visibility: hidden;
 }
 
-.li:hover+.invisible {
-    display: inline-block;
-}
+@media only screen and (max-width: 1400px) {
 
-@media only screen and (max-width: 500px) {
-    .invisible {
+    .expand {
+        display: inline-flex;
+        visibility: visible;
+    }
+
+    .visible{
         display: none;
+        visibility: hidden;
     }
 }
+
+@media only screen and (max-width: 1100px) {
+    .left > ul > :not(.logo) {
+        display: none;
+        visibility: hidden;
+    }
+
+    .right > ul > :not(.menu) {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .center {
+        display: none;
+        visibility: hidden;
+    }
+    .navbar {
+        justify-content: space-between;
+        padding: 1vh;
+    }
+}
+
 </style>
