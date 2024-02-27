@@ -2,7 +2,7 @@
 import Time from "./Time.svelte";
 import Weather from "./Weather.svelte";
 import ThemeSwitch from "./ThemeSwitch.svelte";
-    import { text } from "@sveltejs/kit";
+import { text } from "@sveltejs/kit";
 import {
     onMount
 } from 'svelte';
@@ -88,8 +88,8 @@ onMount(() => {
     padding-top: 2vh;
     padding-bottom: 2vh;
 
-    backdrop-filter: blur(2px);
-    background: radial-gradient(circle, rgba(47, 79, 79, 0) 0%, rgba(88, 150, 150, 0.5)60%, rgba(47, 79, 79, 1) 100%);
+    
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.7) 100%);
 }
 
 .popup-box {
@@ -131,8 +131,8 @@ nav {
     border: 2px double antiquewhite;
     border-radius: 50vh;
 
-    backdrop-filter: blur(30px);
-    background: rgba(47, 79, 79, 0.4);
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0, 0.1);
 
 }
 
@@ -150,6 +150,7 @@ li {
     background-repeat: no-repeat;
     background-position: 50% 100%;
     background-size: 0% 0%;
+    
     transition: all 100ms;
 }
 
@@ -158,6 +159,7 @@ li:hover {
     text-shadow: none;
     background-size: 100% 100%;
     translate: 1px 1px;
+    backdrop-filter: blur(10px);
 
 }
 
