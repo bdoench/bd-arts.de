@@ -6,6 +6,20 @@ import '../app.css'
 import Page from './+page.svelte';
 import Navbar from './lib/components/Navbar.svelte';
 
+function preloadImages(urls, callback) {
+    var loaded = 0;
+    urls.forEach(function(url) {
+        var img = new Image();
+        img.onload = function() {
+            loaded++;
+            if (loaded === urls.length) {
+                callback();
+            }
+        };
+        img.src = url;
+    });
+}
+
 function cycleBackgrounds() {
 
     var HD_urls = [
@@ -43,28 +57,31 @@ function cycleBackgrounds() {
         "/bg14_web_ls.jpg",
         "/bg15_web_ls.jpg"
     ];
+    
+    urls = HD_urls; // UNCOMMENT FOR HIGH DEFINITON
 
-    //urls = HD_urls; // UNCOMMENT FOR HIGH DEFINITON
 
-    var index = 0;
-    var timer = 10000;
-    var duration = 800;
+    preloadImages(urls, function() {
+        var index = 0;
+        var timer = 10000;
+        var duration = 800;
 
-    var e = document.getElementById("bg");
+        var e = document.getElementById("bg");
 
-    function changeBackground() {
+        function changeBackground() {
 
-        if (e != null && e instanceof HTMLElement) {
+            if (e != null && e instanceof HTMLElement) {
 
-            e.style.backgroundImage = "url(" + urls[index] + ")";
-            index = (index + 1) % urls.length;
-            console.log("Background was changed!", index);
+                e.style.backgroundImage = "url(" + urls[index] + ")";
+                index = (index + 1) % urls.length;
+                console.log("Background was changed!", index);
+            }
         }
-    }
 
-    changeBackground();
+        changeBackground();
 
-    setInterval(changeBackground, timer);
+        setInterval(changeBackground, timer);
+    });
 }
 
 onMount(() => {
@@ -106,13 +123,13 @@ onMount(() => {
     min-width: 100%;
     height: 100vh;
 
+    
+
     position: absolute;
-    transition: all 2s ease-out;
+    transition: all 2000ms ease-in;
 }
 
-.trigger {
-    translate: 50%;
-}
+
 
 @keyframes slideBackground {
     0% {
