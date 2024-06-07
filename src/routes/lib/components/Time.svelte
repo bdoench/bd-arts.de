@@ -1,5 +1,7 @@
 <script>
+
 import { onMount } from 'svelte';
+import { darkMode } from '/src/store.js';
 
 let time = new Date();
 
@@ -14,14 +16,21 @@ onMount(() => {
     }, 1000);});
 </script>
 
-<div>
+<div class={$darkMode ? 'dark-mode' : 'light-mode'}>
     <a href="/" class="item left">{str_hours}:{str_minutes}</a>
 </div>
 
 <style>
 div {
     font-size: inherit;
-    color: antiquewhite;
     text-shadow: 0px 0px 10px black;
+}
+
+.dark-mode {
+        color: white;
+}
+
+.light-mode {
+        color: black;
 }
 </style>

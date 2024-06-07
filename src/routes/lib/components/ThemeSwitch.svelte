@@ -1,5 +1,9 @@
+<script>
+    import { darkMode } from '../../../store.js';
+</script>
+
 <div class="toggle">
-    <input type="checkbox" id="theme-toggle" />
+    <input type="checkbox" id="theme-toggle" bind:checked={$darkMode} />
     <label for="theme-toggle" />
 </div>
 
@@ -7,10 +11,10 @@
     #theme-toggle {
         @apply invisible;        
     }
-    
-    .toggle:hover{
+
+    .toggle:hover {
         translate: 1px 1px;
-        background: radial-gradient(circle, rgba(0,0,0,0) 100%, rgba(0,0,0,1) 0%)
+        #background: radial-gradient(circle, rgba(0,0,0,0) 100%, rgba(0,0,0,1) 0%);
     }
 
     #theme-toggle + label {

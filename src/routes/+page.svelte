@@ -23,11 +23,11 @@
     font-size: 40px;
     text-shadow: 3px 3px 10px black;
     border-color: antiquewhite;
-    background-color: rgba(47, 79, 79, 0.0);
+    
     border-style: solid;
     border-width: 2px;
 
-    border-radius: 50px;
+    border-radius: 20px;
     backdrop-filter: blur(15px);
     box-shadow: 0px 0px 50px 0px black;
 }
