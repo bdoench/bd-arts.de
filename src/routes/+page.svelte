@@ -13,30 +13,7 @@
 </div>
 
 <style>
-.content {
-    margin: max(50vh, 200px) 20vw;
-    padding: 5vh 10vw;
-    translate: 0% -50%;
-    width: 60vw;
-    line-height: 5rem;
-    position: absolute;
-    font-size: 40px;
-    text-shadow: 3px 3px 10px black;
-    border-color: antiquewhite;
-    
-    border-style: solid;
-    border-width: 2px;
 
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0px 0px 50px 0px black;
-}
-
-p {
-    position: absolute;
-    bottom: 0;
-    text-shadow: 0px 0px 10px black;
-}
 
 
 </style>
