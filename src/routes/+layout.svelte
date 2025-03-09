@@ -21,22 +21,34 @@
     }
 
     function cycleBackgrounds() {
-        var HD_urls = [
-            "/bg1.jpg", "/bg2.jpg", "/bg3.jpg", "/bg4.jpg",
-            "/bg5.jpg", "/bg6.jpg", "/bg7.jpg", "/bg8.jpg",
-            "/bg9.jpg", "/bg10.jpg", "/bg11.jpg", "/bg12.jpg",
-            "/bg13.jpg", "/bg14.jpg", "/bg15.jpg"
-        ];
-
         var urls = [
-            "/bg1_web_ls.jpg", "/bg2_web_ls.jpg", "/bg3_web_ls.jpg",
-            "/bg4_web_ls.jpg", "/bg5_web_ls.jpg", "/bg6_web_ls.jpg",
-            "/bg7_web_ls.jpg", "/bg8_web_ls.jpg", "/bg9_web_ls.jpg",
-            "/bg10_web_ls.jpg", "/bg11_web_ls.jpg", "/bg12_web_ls.jpg",
-            "/bg13_web_ls.jpg", "/bg14_web_ls.jpg", "/bg15_web_ls.jpg"
+            "/bg_0.jpg", 
+            "/bg_1.jpg",
+            "/bg_2.jpg",
+            "/bg_3.jpg",
+            "/bg_4.jpg",
+            "/bg_5.jpg",
+            "/bg_6.jpg",
+            "/bg_7.jpg",
+            "/bg_8.jpg",
+            "/bg_9.jpg",
+            "/bg_10.jpg",
+            "/bg_11.jpg",
+            "/bg_12.jpg",
+            "/bg_13.jpg",
+            "/bg_14.jpg",
+            "/bg_15.jpg",
+            "/bg_16.jpg",
+            "/bg_17.jpg",
+            "/bg_18.jpg",
+            "/bg_19.jpg",
+            "/bg_20.jpg",
+            "/bg_21.jpg",
+            "/bg_22.jpg",
+            "/bg_23.jpg",
+            "/bg_24.jpg",
+            "/bg_25.jpg",
         ];
-
-        urls = HD_urls; // UNCOMMENT FOR HIGH DEFINITON
 
         preloadImages(urls, function() {
             var index = 0;
@@ -46,12 +58,13 @@
             var e = document.getElementById("bg");
 
             function changeBackground() {
-                if (e != null && e instanceof HTMLElement) {
-                    e.style.backgroundImage = "url(" + urls[index] + ")";
-                    index = (index + 1) % urls.length;
-                    console.log("Background was changed!", index);
-                }
+            if (e != null && e instanceof HTMLElement) {
+                // Select a random index
+                var randomIndex = Math.floor(Math.random() * urls.length);
+                e.style.backgroundImage = "url(" + urls[randomIndex] + ")";
+                console.log("Background was changed to image at index:", randomIndex);
             }
+        }
 
             changeBackground();
             setInterval(changeBackground, timer);
@@ -82,7 +95,6 @@
         
             <p>This site is still under construction! For further updates or if you want to follow the development, visit my GitHub <a href="https://github.com/bdoench/bd-arts.de">repository</a>.</p>
         
-            <slot />
             
         </div>
     </body>
