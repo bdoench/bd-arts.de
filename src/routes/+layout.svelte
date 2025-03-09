@@ -36,7 +36,7 @@
             "/bg13_web_ls.jpg", "/bg14_web_ls.jpg", "/bg15_web_ls.jpg"
         ];
 
-        // urls = HD_urls; // UNCOMMENT FOR HIGH DEFINITON
+        urls = HD_urls; // UNCOMMENT FOR HIGH DEFINITON
 
         preloadImages(urls, function() {
             var index = 0;
@@ -75,13 +75,15 @@
     <body>
         <div id="bg" class="bg-img {$darkMode ? 'bg-dark' : 'bg-light'}"></div>
         <div>
-
+            
             <div class="content">
                 <h1>Hello World, <br> welcome to <a href="https://bd-arts.de">bd-arts.de</a>!</h1>
             </div>
         
             <p>This site is still under construction! For further updates or if you want to follow the development, visit my GitHub <a href="https://github.com/bdoench/bd-arts.de">repository</a>.</p>
         
+            <slot />
+            
         </div>
     </body>
 </div>
@@ -106,7 +108,7 @@
         color: black;
         background-color: white;
         box-shadow: 0px 0px 50px 0px white;
-        text-shadow: 0 0 10px lightgrey;
+        text-shadow: 0 0 10px darkgrey;
         border-color: white;
     }
 
@@ -164,7 +166,7 @@
     border-width: 2px;
 
     border-radius: 20px;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
 
     
     

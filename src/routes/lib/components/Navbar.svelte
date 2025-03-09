@@ -43,9 +43,11 @@
         <div class="navbar">
             <div class="left">
                 <ul>
-                    <div class="logo">
-                        <img src="/favicon.png" alt="Logo" width={65} class="logo"/>
-                    </div>
+                    <a href="/" class="logo-link">
+                        <div class="logo">
+                            <img src="/favicon.png" alt="Logo" width="65" class="logo"/>
+                        </div>
+                    </a>                   
                     <li><Time /></li>
                     <li><Weather /></li>
                 </ul>
@@ -54,24 +56,24 @@
             <div class="center">
                 <nav>
                     <ul>
-                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/">Blog</a></li>
                         <div class="expand">
                             <li><div>Subjects</div></li>
                         </div>
                         <div class="visible">
-                            <li><a href="/photography">Photography</a></li>
-                            <li><a href="/3dart">3D Art</a></li>
-                            <li><a href="/diy">DIY</a></li>
-                            <li><a href="/tech">Tech</a></li>
+                            <li><a href="/">Photography</a></li>
+                            <li><a href="/">3D Art</a></li>
+                            <li><a href="/">DIY</a></li>
+                            <li><a href="/">Tech</a></li>
                         </div>
-                        <li><a href="/about">About</a></li>
+                        <li><a href="/">About</a></li>
                      </ul>
                 </nav>
             </div>
             
             <div class="right">
                 <ul>
-                    <li><a href="/login">Login</a></li>
+                    <li><a href="/">Login</a></li>
                     <div><ThemeSwitch /></div>
                     <li><button>Lang</button></li>
                     <div class="menu">
@@ -82,10 +84,10 @@
     
             <div class="popup-box" style="display: {e ? 'flex' : 'none'}">
                 <ul>
-                    <li><a href="/photography">Photography</a></li>
-                    <li><a href="/3dart">3D Art</a></li>
-                    <li><a href="/diy">DIY | Electronics</a></li>
-                    <li><a href="/tech">Tech</a></li>
+                    <li><a href="/">Photography</a></li>
+                    <li><a href="/">3D Art</a></li>
+                    <li><a href="/">DIY | Electronics</a></li>
+                    <li><a href="/">Tech</a></li>
                 </ul>
             </div>
         </div>
@@ -190,7 +192,7 @@
         transition: all 100ms;
     }
     
-    li:hover, button:hover {
+    li:hover, button:hover, .logo:hover {
         text-shadow: none;
         background-size: 100% 100%;
         translate: 1px 1px;
